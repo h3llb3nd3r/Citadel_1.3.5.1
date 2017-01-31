@@ -198,7 +198,7 @@ $_TABLES['exe_updates'] = <<<SQL
 `scan_date`	INT		UNSIGNED	NOT NULL	DEFAULT 0		COMMENT 'Avir scan date',
 `scan_threat`	INT		UNSIGNED	NOT NULL	DEFAULT 0		COMMENT 'Threat-detected count',
 `scan_count`	INT		UNSIGNED	NOT NULL	DEFAULT 0		COMMENT 'Avir software scanned',
-`scan_details`	TEXT				NOT NULL	DEFAULT ''	COMMENT 'Scan details: name:value'
+`scan_details`	VARCHAR(255)			NOT NULL	DEFAULT ''	COMMENT 'Scan details: name:value'
 SQL;
 
 $_TABLES['exe_updates_crypter'] = <<<SQL
@@ -275,7 +275,7 @@ $_TABLES['accparse_accounts'] = <<<SQL
 `mtime`		INT		UNSIGNED	NOT NULL				COMMENT 'The last time this account was used',
 
 `favorite`	TINYINT			NOT NULL	DEFAULT 0		COMMENT 'Is favorite: 0 default >0 favorite <0 junk',
-`notes`		TEXT				NOT NULL	DEFAULT ''	COMMENT 'Custom notes',
+`notes`		VARCHAR(255)		NOT NULL	DEFAULT ''	COMMENT 'Custom notes',
 
 UNIQUE `idx_ruleid_account` (`rule_id`, `acc_hash`),
 INDEX  `idx_fav` (`favorite`),
